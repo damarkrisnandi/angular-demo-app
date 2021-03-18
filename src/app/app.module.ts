@@ -3,14 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PostTemplateComponent } from './post-template/post-template.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MainComponentComponent } from './main-component/main-component.component';
+import { PostAddComponent } from './post-add/post-add.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateCardComponent } from './create-card/create-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostTemplateComponent,
+    MainComponentComponent,
+    PostAddComponent,
+    CreateCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

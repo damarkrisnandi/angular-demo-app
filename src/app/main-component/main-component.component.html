@@ -1,0 +1,24 @@
+<br>
+<app-create-card *ngIf="!showAdd" (create)="showAdd=$event"></app-create-card>
+<app-post-add *ngIf="showAdd" (close)="afterCloseForm()"></app-post-add>
+<div class="container">
+  <div>
+    <div class="spinner-border" role="status" *ngIf="members.length === 0; else memberTemplate">
+      <span class="visually-hidden"></span>
+    </div>
+  </div>
+  <ng-template #memberTemplate>
+  <div class="row" *ngFor="let member of members; let i = index" style="margin-bottom: 10px;">
+    <div class="col-md-12">
+      <app-post-template
+        [name]="member?.name"
+        [id]="member?.id"
+        [content]="member?.bio"
+        [age]="member?.age"
+        (delete)="deleteMember(member.id, i)"
+        >
+      </app-post-template>
+    </div>
+  </div>
+</ng-template>
+</div>
