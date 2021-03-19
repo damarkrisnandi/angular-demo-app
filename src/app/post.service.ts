@@ -10,23 +10,6 @@ export class PostService {
     private http: HttpClient
   ) { }
 
-  getAllPosts() {
-    return this.http.get(this.url + '/posts');
-  }
-
-  postUser1(title, body, userId) {
-    const obj = {title, body, userId }
-    return this.http.post(this.url + '/users/1/posts', obj);
-  }
-
-  getAllUsers() {
-    return this.http.get(this.url + '/users');
-  }
-
-  getUsers(id) {
-    return this.http.get(this.url + '/users/' + id);
-  }
-
   get(): any {
     return this.http.get(this.url);
   }
