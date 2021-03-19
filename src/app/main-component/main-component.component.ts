@@ -45,6 +45,13 @@ export class MainComponentComponent implements OnInit {
   deleteMember(id: any, index: number) {
     this.ps.delete(id).subscribe(res => {
       this.members.splice(index, 1);
+
+      this.showNotif = true;
+      this.message = `Member ID ${id} Berhasil dihapus!`
+      // notif hilang setelah 3 detik
+      setTimeout(() => {
+        this.showNotif = false;
+      }, 3000);
     });
   }
 }
