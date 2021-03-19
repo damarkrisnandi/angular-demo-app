@@ -10,6 +10,7 @@ import { PostAddComponent } from './post-add/post-add.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCardComponent } from './create-card/create-card.component';
 import { NotificationComponent } from './notification/notification.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotificationComponent } from './notification/notification.component';
     MainComponentComponent,
     PostAddComponent,
     CreateCardComponent,
-    NotificationComponent
+    NotificationComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import { PostService } from '../post.service';
 export class MainComponentComponent implements OnInit {
   members = [];
   showAdd = false;
+  showEdit = false;
+  dataEdit = null;
   message = '';
   showNotif = false;
   constructor(
@@ -17,6 +19,8 @@ export class MainComponentComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
+
+
   }
 
   getData() {
@@ -27,12 +31,26 @@ export class MainComponentComponent implements OnInit {
 
   afterCloseForm(event) {
     this.showAdd = event;
+    this.showEdit = event;
   }
 
   afterSaveForm(event) {
     this.showAdd = false;
     this.showNotif = true;
     this.message = 'Member Berhasil Ditambahkan!'
+    this.members = [];
+    this.getData();
+
+    // notif hilang setelah 3 detik
+    setTimeout(() => {
+      this.showNotif = false;
+    }, 3000);
+  }
+
+  afterEditForm(event) {
+    this.showEdit = false;
+    this.showNotif = true;
+    this.message = 'Member Berhasil Diupdate!'
     this.members = [];
     this.getData();
 
@@ -53,5 +71,10 @@ export class MainComponentComponent implements OnInit {
         this.showNotif = false;
       }, 3000);
     });
+  }
+
+  editClick(member) {
+    this.dataEdit = member;
+    this.showEdit = true;
   }
 }

@@ -2,12 +2,12 @@
   <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-12"><div class="card">
       <div class="card-header">
-        <strong>Create New Member</strong>
+        <strong>Update Member</strong> #{{member?.id}}
       </div>
       <div class="card-body" [formGroup]="angForm">
         <div class="form-group">
           <label class="col-md-4">Name</label>
-          <input type="text" class="form-control" #name formControlName="name" id="name"/>
+          <input type="text" class="form-control" #name formControlName="name"/>
         </div>
 
         <div class="form-group">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary" (click)="saveBtnClicked()">Save</button>&nbsp;
+          <button type="submit" class="btn btn-primary" (click)="saveBtnClicked()">Update</button>&nbsp;
           <button class="btn btn-danger" (click)="cancelButtonClicked()">Cancel</button>
         </div>
 
