@@ -50,13 +50,14 @@ export class MainComponentComponent implements OnInit {
   afterEditForm(event) {
     this.showEdit = false;
     this.showNotif = true;
-    this.message = 'Member Berhasil Diupdate!'
+    this.message = `Member ID ${this.dataEdit.id} Berhasil Diupdate!`
     this.members = [];
     this.getData();
 
     // notif hilang setelah 3 detik
     setTimeout(() => {
       this.showNotif = false;
+      this.dataEdit = null;
     }, 3000);
   }
 

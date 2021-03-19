@@ -1,5 +1,5 @@
 <br>
-<app-create-card *ngIf="!showAdd" (create)="showAdd=$event"></app-create-card>
+<app-create-card *ngIf="!showAdd && !showEdit" (create)="showAdd=$event"></app-create-card>
 <app-post-add *ngIf="showAdd" (close)="afterCloseForm()" (save)="afterSaveForm()"></app-post-add>
 <app-post-edit *ngIf="showEdit" [member]="dataEdit" (close)="afterCloseForm()" (save)="afterEditForm()"></app-post-edit>
 <app-notification [message]="message" *ngIf="showNotif"></app-notification>
