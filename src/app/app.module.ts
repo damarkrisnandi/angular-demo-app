@@ -9,6 +9,7 @@ import { MainComponentComponent } from './main-component/main-component.componen
 import { PostAddComponent } from './post-add/post-add.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCardComponent } from './create-card/create-card.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateCardComponent } from './create-card/create-card.component';
     PostTemplateComponent,
     MainComponentComponent,
     PostAddComponent,
-    CreateCardComponent
+    CreateCardComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

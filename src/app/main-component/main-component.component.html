@@ -1,6 +1,7 @@
 <br>
 <app-create-card *ngIf="!showAdd" (create)="showAdd=$event"></app-create-card>
-<app-post-add *ngIf="showAdd" (close)="afterCloseForm()"></app-post-add>
+<app-post-add *ngIf="showAdd" (close)="afterCloseForm()" (save)="afterSaveForm()"></app-post-add>
+<app-notification [message]="message" *ngIf="showNotif"></app-notification>
 <div class="container">
   <div>
     <div class="spinner-border" role="status" *ngIf="members.length === 0; else memberTemplate">
@@ -22,3 +23,4 @@
   </div>
 </ng-template>
 </div>
+

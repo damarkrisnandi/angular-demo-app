@@ -11,6 +11,7 @@ import { PostService } from '../post.service';
 export class PostAddComponent implements OnInit {
   angForm: FormGroup;
   @Output() close = new EventEmitter<boolean>();
+  @Output() save = new EventEmitter<boolean>();
   invalid = false;
   constructor(
     private fb: FormBuilder,
@@ -26,13 +27,13 @@ export class PostAddComponent implements OnInit {
   createForm() {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
-      bio: ['', [Validators.required, Validators.maxLength(20)]],
+      bio: ['', [Validators.required, Validators.maxLength(140)]],
       age: ['', [Validators.required, Validators.pattern("^[0-9]*$")]]
     });
   }
 
-  save() {
-    if (this.angForm.valid === false) { // ekuivalen dengan !this.angForm.valid
+  saveBtnClicked() {
+    if (!this.angForm.valid) {
       // stop method
       this.invalid = true;
       return;
@@ -43,6 +44,7 @@ export class PostAddComponent implements OnInit {
     const bio = this.angForm.controls.bio.value; // ambil data bio
     const age = this.angForm.controls.age.value; // ambil data age
     this.ps.addMember2(name, bio, age).subscribe(() => {
+      this.save.emit(true);
       this.close.emit(false);
     })
   }

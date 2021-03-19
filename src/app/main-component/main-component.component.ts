@@ -9,6 +9,8 @@ import { PostService } from '../post.service';
 export class MainComponentComponent implements OnInit {
   members = [];
   showAdd = false;
+  message = '';
+  showNotif = false;
   constructor(
     private ps: PostService
   ) { }
@@ -25,8 +27,19 @@ export class MainComponentComponent implements OnInit {
 
   afterCloseForm(event) {
     this.showAdd = event;
+  }
+
+  afterSaveForm(event) {
+    this.showAdd = false;
+    this.showNotif = true;
+    this.message = 'Member Berhasil Ditambahkan!'
     this.members = [];
     this.getData();
+
+    // notif hilang setelah 3 detik
+    setTimeout(() => {
+      this.showNotif = false;
+    }, 3000);
   }
 
   deleteMember(id: any, index: number) {
